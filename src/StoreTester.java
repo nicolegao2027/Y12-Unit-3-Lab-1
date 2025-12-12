@@ -74,7 +74,13 @@ public class StoreTester {
         assertEquals(book1.getPrice(), 30);
 
         Magazine magazine = new Magazine("magazine1", "Bookshelf", 300,"Fashion Magazine", 455, "December 13, 2025","Jack Bobby","Vogue","December 27, 2025");
-        store.updateItems("Magazine", "author", "Marry Blob");
-        assertEquals(magazine.getAuthor(), "Marry Blob");
+        store.addMagazine(magazine);
+        store.updateItems("Magazine", "datePublished", "November 23, 2025");
+        assertEquals(magazine.getDatePublished(), "November 23, 2025");
+
+        ElectronicItem e1 = new ElectronicItem("ipad","bag",450,"Big ipad", 600, "6", "Apple", "iOS");
+        store.addItems(e1);
+        store.updateItems("ElectronicItem","operatingSystem", "Android");
+        assertEquals(e1.getOperatingSystem(),"Android");
     }
 }
