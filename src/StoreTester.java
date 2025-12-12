@@ -78,10 +78,14 @@ public class StoreTester {
         store.updateItems("Magazine", "datePublished", "November 23, 2025");
         assertEquals(magazine.getDatePublished(), "November 23, 2025");
 
+        Arduino a1 = new Arduino("adruino1","lab",570,"An arduino",700,"3","Android","Android","5");
+        store.addArduino(a1);
+        store.updateItems("Arduino", "storageCapacity", "860");
+        assertEquals(a1.getStorageCapacity(), 860);
+
         ElectronicItem e1 = new ElectronicItem("ipad","bag",450,"Big ipad", 600, "6", "Apple", "iOS");
         store.addItems(e1);
         store.updateItems("ElectronicItem","operatingSystem", "Android");
         assertEquals(e1.getOperatingSystem(),"Android");
-        store.showAllInfo();
     }
 }
