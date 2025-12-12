@@ -169,8 +169,36 @@ public class Store {
         }
     }
     public void showAllInfo(){
-        for (CISItem item:cisItems){
-            System.out.println(item);
+        for(int i=0;i<cisItems.size();i++){
+            CISItem item=cisItems.get(i);
+            System.out.println("Item "+(i+1)+": "+ item.getClass().getSimpleName());
+            System.out.println("Name: "+item.getName()+"\n"+"Location: "+item.getLocation()+"\n"+"Price: $" + item.getPrice()+"\n"+"Description: "+item.getDescription());
+            if(item instanceof ReadingItem){
+                ReadingItem readingItem=(ReadingItem)item;
+                System.out.println("Word Count: "+readingItem.getWordCount()+"\n"+"Date Published: "+readingItem.getDatePublished()+"\n"+"Author: "+readingItem.getAuthor());
+                if(item instanceof Book){
+                    Book book=(Book) item;
+                    System.out.println("ISBN: "+book.getIsbn()+"\n"+"Edition: "+book.getEdition()+"\n"+"Title: "+book.getTitle());
+                }
+                if(item instanceof Magazine){
+                    Magazine magazine=(Magazine) item;
+                    System.out.println("Cover Story Title: "+magazine.getCoverStoryTitle()+"\n"+"Print Date: "+magazine.getPrintDate());
+                }
+            }
+
+            if(item instanceof ElectronicItem){
+                ElectronicItem electronicItem = (ElectronicItem) item;
+                System.out.println("Storage Capacity: "+electronicItem.getStorageCapacity()+"GB"+"\n"+"Model: "+electronicItem.getModel()+"\n"+"Maker: "+electronicItem.getMaker()+"\n"+"Operating System: "+electronicItem.getOperatingSystem());
+                if(item instanceof Phone){
+                    Phone phone=(Phone)item;
+                    System.out.println("Network Type: "+phone.getNetworkType()+"\n"+"Screen Size: "+phone.getScreenSize()+" inches");
+                }
+                if(item instanceof Arduino){
+                    Arduino arduino=(Arduino)item;
+                    System.out.println("Version: "+arduino.getVersion());
+                }
+            }
+            System.out.println();
         }
     }
 }

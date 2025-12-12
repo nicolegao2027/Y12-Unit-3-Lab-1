@@ -82,5 +82,6 @@ public class StoreTester {
         store.addItems(e1);
         store.updateItems("ElectronicItem","operatingSystem", "Android");
         assertEquals(e1.getOperatingSystem(),"Android");
+        store.showAllInfo();
     }
 }
